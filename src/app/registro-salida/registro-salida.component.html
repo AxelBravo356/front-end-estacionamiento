@@ -1,0 +1,51 @@
+<div class="mt-3"></div>
+<div class="container">
+  <div class="card border-primary">
+    <div class="card-header">
+      <h1 class="text-center">Salida</h1>
+    </div>
+    <div class="card-body text-center">
+      <div class="container">
+        <form>
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+                <label for="puertaSalida" class="form-label"
+                  >PuertaSalida</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="puertaSalida"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Fecha </label>
+                <input type="date" [value]="TodayDate" class="form-control" />
+              </div>
+              <div class="mt-3">
+                <label for="" class="form-label">Hora</label>
+                <input
+                  class="form-control"
+                  placeholder="12:00 AM/PM"
+                  aria-label="12hr format"
+                  [ngxTimepicker]="default"
+                  readonly
+                />
+                <ngx-material-timepicker #default></ngx-material-timepicker>
+              </div>
+            </div>
+            <div class="col">
+              <div class="mb-3">
+                <label for="motoId" class="form-label">Moto_idMoto</label>
+                <input type="number" class="form-control" id="escuela" />
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
