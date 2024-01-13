@@ -26,6 +26,7 @@ import { RegistroEntradaComponent } from './registro-entrada/registro-entrada.co
 import { RegistroSalidaComponent } from './registro-salida/registro-salida.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { RegistroScComponent } from './registro-sc/registro-sc.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { FormsModule } from '@angular/forms';
     SalidaComponent,
     RegistroEntradaComponent,
     RegistroSalidaComponent,
+    RegistroScComponent,
   ],
   imports: [
     BrowserModule,

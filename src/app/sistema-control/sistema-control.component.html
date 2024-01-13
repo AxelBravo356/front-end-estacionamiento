@@ -2,33 +2,31 @@
   <div class="container border-primary">
     <div class="card text-center">
       <div class="card-header text-primary text-center">
-        <h1 class="card-header">Sistema de Control</h1>
+        <h1 class="card-header">{{title}}</h1>
       </div>
       <div class="text-primary text-end">
-        <a routerLink="/registro-moto" class="btn btn-primary"> Crear</a>
+        <a routerLink="/registro-sc" class="btn btn-primary"> Crear</a>
       </div>
     </div>
     <div class="table-responsive text-primary">
       <table class="table table striped">
         <thead>
           <tr>
-            <td>idMoto</td>
-            <td>marcaMoto</td>
-            <td>modeloMoto</td>
-            <td>serieMoto</td>
+            <td>idControl</td>
+            <td>Acceso</td>
+            <td></td>
+            <td></td>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let sc of listaSC">
+            <td>{{sc.idSistemaControl}}</td>
+            <td>{{sc.acceso}}</td>
             <td>
-              <a class="btn btn-outline-danger"> Eliminar</a>
+              <a class="btn btn-outline-danger" (click)="delete(sc.idSistemaControl)"> Eliminar</a>
             </td>
             <td>
-              <a href="" class="btn btn-outline-success"> Actualizar</a>
+              <a class="btn btn-outline-success" routerLink="/registro-sc/{{sc.idSistemaControl}}"> Actualizar</a>
             </td>
           </tr>
         </tbody>
