@@ -16,12 +16,16 @@ const routes: Routes = [
   { path: 'motos', component: MotosComponent },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'registro-usuario', component: RegistroUsuariosComponent },
+  { path: 'registro-usuario/:id', component: RegistroUsuariosComponent },
   { path: 'registro-moto', component: RegistroMotoComponent },
+  { path: 'registro-moto/:id', component: RegistroMotoComponent },
   { path: 'sistema-control', component: SistemaControlComponent },
   { path: 'entrada', component: EntradaComponent },
   { path: 'salida', component: SalidaComponent },
   { path: 'registro-entrada', component: RegistroEntradaComponent },
+  { path: 'registro-entrada/:id', component: RegistroEntradaComponent },
   { path: 'registro-salida', component: RegistroSalidaComponent },
+  { path: 'registro-salida/:id', component: RegistroSalidaComponent },
 ];
 
 @NgModule({

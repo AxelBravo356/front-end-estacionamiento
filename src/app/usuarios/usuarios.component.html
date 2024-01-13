@@ -4,11 +4,11 @@
       <div class="card-header text-primary text-center">
         <h1 class="card-header">{{ titulo }}</h1>
       </div>
+    </div>
+    <div class="table-responsive text-primary">
       <div class="text-primary text-end">
         <a routerLink="/registro-usuario" class="btn btn-primary"> Crear</a>
       </div>
-    </div>
-    <div class="table-responsive text-primary">
       <table class="table table striped">
         <thead>
           <tr>
@@ -20,17 +20,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let user of listaUsuarios">
+            <td>{{user.idUsuario}}</td>
+            <td>{{user.nombreUsuario}}</td>
+            <td>{{user.paternoUsuario}}</td>
+            <td>{{user.maternoUsuario}}</td>
+            <td><a *ngFor="let mt of user.motos" routerLink="/registro-moto/{{mt.idMoto}}">{{mt.idMoto}}</a></td>  
             <td>
-              <a class="btn btn-outline-danger"> Eliminar</a>
+              <a class="btn btn-outline-danger" (click)="delete(user.idUsuario)"> Eliminar</a>
             </td>
             <td>
-              <a href="" class="btn btn-outline-success"> Actualizar</a>
+              <a routerLink="/registro-usuario/{{user.idUsuario}}" class="btn btn-outline-success" > Actualizar</a>
             </td>
           </tr>
         </tbody>

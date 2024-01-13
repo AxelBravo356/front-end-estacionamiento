@@ -24,6 +24,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RegistroEntradaComponent } from './registro-entrada/registro-entrada.component';
 import { RegistroSalidaComponent } from './registro-salida/registro-salida.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { RegistroSalidaComponent } from './registro-salida/registro-salida.compo
     MatFormFieldModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
