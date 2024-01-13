@@ -16,23 +16,33 @@
             <td>marcaMoto</td>
             <td>modeloMoto</td>
             <td>serieMoto</td>
+            <td>placas</td>
+            <td>Usuario</td>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let moto of listaMotos">
+            <td>{{moto.idMoto}}</td>
+            <td>{{moto.marcaMoto}}</td>
+            <td>{{moto.modeloMoto}}</td>
+            <td>{{moto.serieMoto}}</td>
+            <td>{{moto.placasMoto}}</td>
+            <td><a routerLink="/registro-usuario/{{moto.idUsuario.idUsuario}}"> {{moto.idUsuario.nombreUsuario}}_{{moto.idUsuario.paternoUsuario}}_{{moto.idUsuario.maternoUsuario}}  </a></td>
             <td>
-              <a class="btn btn-outline-danger"> Eliminar</a>
+              <a class="btn btn-outline-danger" (click)="delete(moto.idMoto)"> Eliminar</a>
             </td>
             <td>
-              <a href="" class="btn btn-outline-success"> Actualizar</a>
+              <a href="" class="btn btn-outline-success" routerLink="/registro-moto/{{moto.idMoto}}" > Actualizar</a>
             </td>
           </tr>
         </tbody>
       </table>
+      <button
+            class="btn btn-primary form-control mt-3"
+              type="button"
+              (click)="descargarPDF()">
+            Obtener reporte
+      </button>
     </div>
   </div>
 </div>

@@ -14,9 +14,10 @@
                   >Marca de la Moto</label
                 >
                 <input
-                  type="email"
+                  type="text"
                   class="form-control"
-                  id="marcaMoto"
+                  name="marcaMoto"
+                  [(ngModel)]="moto.marcaMoto"
                   required
                 />
               </div>
@@ -27,7 +28,8 @@
                 <input
                   type="text"
                   class="form-control"
-                  id="modeloMoto"
+                  name="modeloMoto"
+                  [(ngModel)]="moto.modeloMoto"
                   required
                 />
               </div>
@@ -40,7 +42,8 @@
                 <input
                   type="text"
                   class="form-control"
-                  id="serieMoto"
+                  name="serieMoto"
+                  [(ngModel)]="moto.serieMoto"
                   required
                 />
               </div>
@@ -48,13 +51,37 @@
                 <label for="placasMoto" class="form-label"
                   >Placas de la Moto</label
                 >
-                <input type="text" class="form-control" id="placasMoto" />
+                <input type="text" class="form-control" name="placasMoto" [(ngModel)]="moto.placasMoto"/>
               </div>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Registrar</button>
+          <button
+            class="btn btn-outline-success form-control"
+            type="button"
+            (click)="registrar()"
+            *ngIf="!moto.idMoto else elseBlock"
+          >
+            Registrar moto
+          </button>
+          <ng-template #elseBlock>
+            <button
+              class="btn btn-outline-primary form-control"
+              type="button"
+              (click)="actualizar()"
+            >
+              Actualizar moto
+            </button>
+            <button
+              class="btn btn-danger form-control mt-3"
+              type="button"
+              (click)="delete()"
+            >
+              Eliminar moto
+            </button>
+          </ng-template>
         </form>
       </div>
+      <a routerLink="/usuarios/" class="btn btn-outline-primary mt-3"> Regresar </a>
     </div>
   </div>
 </div>

@@ -15,8 +15,43 @@ export class MotoService {
 
   constructor(private http: HttpClient) { }
 
-  recMotos(): Observable<Moto[]>{
+  recuperarMotos(): Observable<Moto[]>{
     return this.http.get<Moto[]>(this.urlEndPoint)
     .pipe(map((response) => response as Moto[]));
+  }
+
+  recuperarMoto(id: number): Observable<Moto> {
+    return this.http.get<Moto>(`${this.urlEndPoint}/${id}`);
+  }
+
+  crearMoto(moto: Moto): Observable<Moto> {
+    return this.http.post<Moto>(this.urlEndPoint, moto, {
+      headers: this.httpHeaders,
+    });
+  }
+
+  actualizarMoto(moto: Moto): Observable<Moto> {
+    return this.http.put<Moto>(
+      `${this.urlEndPoint}/${moto.idMoto}`,
+      moto,
+      {
+        headers: this.httpHeaders,
+      }
+    );
+  }
+
+  eliminarMoto(id: number): Observable<Moto> {
+    return this.http.delete<Moto>(`${this.urlEndPoint}/${id}`, {
+      headers: this.httpHeaders,
+    });
+  }
+
+  getPDF(): Observable<Blob> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/pdf' });
+
+    return this.http.get<Blob>(this.urlEndPoint + '/pdf', {
+      headers: headers,
+      responseType: 'blob' as 'json',
+    });
   }
 }
