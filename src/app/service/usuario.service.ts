@@ -8,6 +8,7 @@ import { Usuario } from '../modelo/Usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
+  
   private urlEndPoint: string =
     'http://localhost:8081/api/usuarios';
 
@@ -44,6 +45,15 @@ export class UsuarioService {
   eliminarUsuario(id: number): Observable<Usuario> {
     return this.http.delete<Usuario>(`${this.urlEndPoint}/${id}`, {
       headers: this.httpHeaders,
+    });
+  }
+
+  getPDF(): Observable<Blob> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/pdf' });
+
+    return this.http.get<Blob>(this.urlEndPoint + '/pdf', {
+      headers: headers,
+      responseType: 'blob' as 'json',
     });
   }
 
