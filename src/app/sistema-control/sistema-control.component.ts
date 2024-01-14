@@ -12,7 +12,6 @@ import { SistemaControl } from '../modelo/SistemaControl';
 export class SistemaControlComponent {
   title:string = "Control Accesos";
 
-  titulo: String = 'Listado de Usuarios';
   listaSC: SistemaControl[] = [];
 
   constructor(

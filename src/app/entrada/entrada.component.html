@@ -15,29 +15,22 @@
             <td>idEntrada</td>
             <td>PuertaEntrada</td>
             <td>FechaHoraEntrada</td>
+            <td>Placas Moto</td>
+            <td>Usuario</td>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-
+          <tr *ngFor="let ent of listaEntradas">
+            <td>{{ent.idEntrada}}</td>
+            <td>{{ent.idSistemaControl.acceso}}</td>
+            <td>{{ent.fechahora}}</td>
+            <td><a routerLink="/registro-moto/{{ent.idMoto.idMoto}}">{{ent.idMoto.placasMoto}}</a></td>
+            <td><a routerLink="/registro-usuario/{{ent.idMoto.idUsuario.idUsuario}}">{{ent.idMoto.idUsuario.nombreUsuario}}</a></td>
             <td>
-              <a routerLink="/registro-moto" class="btn btn-outline-success">
-                Agregar Usuario</a
-              >
+              <a class="btn btn-outline-danger" (click)="delete(ent.idEntrada)"> Eliminar</a>
             </td>
             <td>
-              <a routerLink="/registro-moto" class="btn btn-outline-success">
-                Agregar Moto</a
-              >
-            </td>
-            <td>
-              <a class="btn btn-outline-danger"> Eliminar</a>
-            </td>
-            <td>
-              <a href="" class="btn btn-outline-success"> Actualizar</a>
+              <a class="btn btn-outline-success" routerLink="/registro-entrada/{{ent.idEntrada}}"> Actualizar</a>
             </td>
           </tr>
         </tbody>

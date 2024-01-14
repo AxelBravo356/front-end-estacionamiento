@@ -13,18 +13,20 @@
                 <label for="puertaEntrada" class="form-label"
                   >PuertaEntrada</label
                 >
-                <input
+                <!-- <input
                   type="text"
                   class="form-control"
                   id="puertaEntrada"
                   required
-                />
+                /> -->
+                <select  class="form-control" name="puertaEntrada" id="puertaEntrada" [(ngModel)]="entrada.idSistemaControl.idSistemaControl">
+                <option *ngFor="let acceso of sc" value="{{acceso.idSistemaControl}}">{{acceso.acceso}}</option></select>
               </div>
               <div class="mb-3">
-                <label for="" class="form-label">Fecha </label>
-                <input type="date" [value]="TodayDate" class="form-control" />
+                <label for="fechahora" class="form-label">Fecha </label>
+                <input type="date" [value]="TodayDate" class="form-control" name="fechahora" [(ngModel)]="entrada.fechahora"/>
               </div>
-              <div class="mt-3">
+              <!-- <div class="mt-3">
                 <label for="" class="form-label">Hora</label>
                 <input
                   class="form-control"
@@ -34,16 +36,41 @@
                   readonly
                 />
                 <ngx-material-timepicker #default></ngx-material-timepicker>
-              </div>
+              </div> -->
             </div>
             <div class="col">
               <div class="mb-3">
-                <label for="motoId" class="form-label">Moto_idMoto</label>
-                <input type="number" class="form-control" id="escuela" />
+                <label for="idMoto" class="form-label">Moto_idMoto</label>
+                <!-- <input type="number" class="form-control" id="escuela" /> -->
+                <select  class="form-control" name="idMoto" id="idMoto" [(ngModel)]="entrada.idMoto">
+                <option *ngFor="let moto of motos" value="{{moto}}">{{moto.placasMoto}}_{{moto.idUsuario.nombreUsuario}}_{{moto.idUsuario.paternoUsuario}}</option></select>
               </div>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Registrar</button>
+          <button
+            class="btn btn-outline-success form-control"
+            type="button"
+            (click)="registrar()"
+            *ngIf="!entrada.idEntrada else elseBlock"
+          >
+            Registrar entrada
+          </button>
+          <ng-template #elseBlock>
+            <button
+              class="btn btn-outline-primary form-control"
+              type="button"
+              (click)="actualizar()"
+            >
+              Actualizar entrada
+            </button>
+            <button
+              class="btn btn-danger form-control mt-3"
+              type="button"
+              (click)="delete()"
+            >
+              Eliminar entrada
+            </button>
+          </ng-template>
         </form>
       </div>
     </div>
