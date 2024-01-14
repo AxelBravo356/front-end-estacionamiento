@@ -79,7 +79,7 @@ export class RegistroEntradaComponent {
     });
     Swal.fire(
       'Registrar evento',
-      `Moto con id ${this.entrada} Se ha actualizado correctamente.`,
+      `Moto con id ${this.entrada.idEntrada} Se ha actualizado correctamente.`,
       'success'
     );
   }
